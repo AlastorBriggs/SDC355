@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!--
+            Author: Tevin Donegan   
+            Date:09/06/2026
+            Purpose: This exercise demonstrates how to create and use JavaScript variables and display alert messages when a user selects a radio button. 
+            The exercise also demonstrates how JavaScript can update form fields based on the user's selection.
+            -->
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <title>Variables and Alerts</title>
+            <link rel="stylesheet" href="styles.css" />
+            <script src="modernizr.custom.05819.js"></script>
+
+            <script>
+                var homeMsg = "You selected the Home address.";
+                var workMsg = "You selected the Work address.";
+            </script>
+        </head>
+        <body>
+            <header>
+                <h1>
+                Tevin Donegan - Variables and Alerts
+                </h1>
+            </header>
+            <article>
+                <h2>Shipping Address</h2>
+                <form>
+                    <fieldset id="addroptions">
+                        <legend><span>Choose an address</span></legend>
+                        <label for="homeoption" id="homeaddr">
+                        <span>Home</span><br/>
+                        100 Main St.<br />
+                        Sicilia, MA 02103
+                        <input type="radio" id="homeoption" name="shippingaddr"
+                            onclick=" alert(homeMsg); document.getElementById('streetinput').value =
+                            '100 Main St.';
+                            document.getElementById('cityinput').value = 'Sicilia';
+                            document.getElementById('stateinput').value = 'MA';
+                            document.getElementById('zipinput').value = '02103';"/>
+                        </label>
+                        <label for="workoption" id="workaddr">
+                        <span>Work</span><br/>
+                        123 Robin Ln.<br />
+                        Crab City, MA 02104
+                        <input type="radio" id="workoption" name="shippingaddr" 
+                        onclick=" alert(workMsg); document.getElementById('streetinput').value =
+                        '123 Robin Ln.';
+                        document.getElementById('cityinput').value = 'Crab City';
+                        document.getElementById('stateinput').value = 'MA';
+                        document.getElementById('zipinput').value = '02104';"/>
+                    </label>
+                </fieldset>
+                <fieldset id="contactinfo">
+                    <label for="streetinput">
+                    Street Address
+                    <input type="text" id="streetinput" />
+                    </label>
+                    <label for="cityinput">
+                    City
+                    <input type="text" id="cityinput" />
+                    </label>
+                    <label for="stateinput">
+                    State
+                    <input type="text" id="stateinput" />
+                    </label>
+                    <label for="zipinput">
+                    Zip
+                    <input type="text" id="zipinput" />
+                    </label>
+                </fieldset>
+            </form>
+         </article>
+        </body>
+    </html>

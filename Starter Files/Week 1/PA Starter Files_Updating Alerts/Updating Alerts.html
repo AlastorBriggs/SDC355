@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+            Author:Tevin Donegan
+            Date:09/06/2026 
+            Purpose: This exercise demonstrates how to use JavaScript to calculate an order total and 
+            display different alert messages based on the total cost of the customer's order.
+            -->
+        <meta charset="utf-8" />
+        <!-- Ensures proper scaling and layout on mobile devices -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <title>Updating Alerts</title>
+
+        <!-- Link to external CSS stylesheet -->
+        <link rel="stylesheet" href="styles.css" />
+
+        <!-- Modernizr helps ensure compatibility with older browsers -->
+        <script src="modernizr.custom.05819.js"></script>
+</head>
+<body>
+    <!-- Page header displaying the title -->
+    <header>
+        <h1>
+            Tevin Donegan - Updating Alerts
+        </h1>
+    </header>
+
+    <!-- Main content area -->
+    <article>
+        <h2>Lunch selections</h2>
+
+        <!-- Form containing lunch item choices as checkboxes -->
+        <form>
+            <!-- Each checkbox has a value representing its price -->
+            <input type="checkbox" id="item1" value="8" />
+            <label for="item1">Fried chicken ($8.00)</label>
+            <input type="checkbox" id="item2" value="9" />
+            <label for="item2">Fried halibut ($9.00)</label>
+            <input type="checkbox" id="item3" value="8" />
+            <label for="item3">Hamburger ($8.00)</label>
+            <input type="checkbox" id="item4" value="13" />
+            <label for="item4">Grilled salmon ($13.00)</label>
+            <input type="checkbox" id="item5" value="6" />
+            <label for="item5">Side salad ($6.00)</label>
+            <!-- Submit button that triggers calculation of total cost -->
+            <input type="submit" id="submit" value="Submit" />
+        </form>
+    </article>
+</body>
+
+<!-- JavaScript for handling form interaction and cost calculation -->
+<script>
+    // Function to calculate the total price of selected items including sales tax
+    // Notice we switch to using // within the script tag for JavaScript comments
+    function calcTotal() {
+        var itemTotal = 0;
+
+        // Retrieve references to each checkbox input by ID
+        var item1 = document.getElementById("item1");
+        var item2 = document.getElementById("item2");
+        var item3 = document.getElementById("item3");
+        var item4 = document.getElementById("item4");
+        var item5 = document.getElementById("item5");
+
+        // Add price to total if checkbox is selected (ternary operator used for brevity)
+        (item1.checked) ? (itemTotal += 8) : (itemTotal += 0);
+        (item2.checked) ? (itemTotal += 9) : (itemTotal += 0);
+        (item3.checked) ? (itemTotal += 8) : (itemTotal += 0);
+        (item4.checked) ? (itemTotal += 13) : (itemTotal += 0);
+        (item5.checked) ? (itemTotal += 6) : (itemTotal += 0);
+
+        // Define a fixed sales tax rate (7%)
+        var salesTaxRate = 0.07;
+        
+        // Calculate total with tax
+        var orderTotal = itemTotal + (itemTotal * salesTaxRate);
+
+        //Dispaly alert if at least one item was selected.
+        if (orderTotal <= 20) {
+            alert("Your order total is $" + orderTotal.toFixed(2));
+        }
+        
+        //If order total is more then $20 add a 20% gratuity
+        else {
+            var graduity = orderTotal * 0.2;
+            var finalTotal = orderTotal + graduity;
+
+            alert ("Your order total before gratuity is $" + orderTotal.toFixed(2) + ". A 20% Gratuity has been added to your final bill, bringng the total tp $" + finalTotal.toFixed(2));
+
+        } 
+        
+       
+    }
+    // Add an event listener to the Submit button that triggers the calcTotal function
+    document.getElementById("submit").addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent form from refreshing the page
+        calcTotal();
+    }, false);
+</script>
+</html>
