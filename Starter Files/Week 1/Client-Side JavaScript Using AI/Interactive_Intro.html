@@ -17,19 +17,19 @@
     <button id="changeButton">Change Theme</button>
     <script>
         // Prompt for the user's name
-let name = prompt("What is your name?");
+            let name = prompt("What is your name?");
 
-// Greet the user with an alert
-alert("Welcome, " + name + "!");
+            // Greet the user with an alert
+            alert("Welcome, " + name + "!");
 
-// Update the name element with the user's name
-document.getElementById("name").innerText = "Hello, " + name + "!";
-    
-function changeTheme() {
-    document.body.style.backgroundColor = 
-        document.body.style.backgroundColor === 'lightblue' ? 'lightgreen' : 'lightblue';
-}
-    document.getElementById("changeButton").addEventListener("click", changeTheme);
+            // Update the name element with the user's name
+            document.getElementById("name").innerText = "Hello, " + name + "!";
+                
+            function changeTheme() {
+                document.body.style.backgroundColor = 
+                    document.body.style.backgroundColor === 'lightblue' ? 'lightgreen' : 'lightblue';
+            }
+                document.getElementById("changeButton").addEventListener("click", changeTheme);
     </script>
 </body>
 </html>
