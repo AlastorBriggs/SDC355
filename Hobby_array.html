@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <title>My Personal Page</title>
+        </head>
+        <body>
+            <h1>Welcome to the page of Tevin Donegan(TevDon4603)</h1>
+            <p id="name">Tevin Donegan</p>
+            <p id="bio">My name is Tevin Donegan and I am in school for software development.</p>
+            <ul id="interests"></ul>
+        </body>
+        <script>
+                    // Create an array of interests
+                    const interests = ["Coding", "Reading", "Traveling", "Photography"];
+
+                    // Get the <ul> element by its ID
+                    const interestsList = document.getElementById("interests");
+
+                    // Loop through the array and display each interest
+                    for (let i = 0; i < interests.length; i++) {
+                        const listItem = document.createElement("li"); // Create a new list item
+                        listItem.textContent = interests[i]; // Set the text of the list item
+                        interestsList.appendChild(listItem); // Add the list item to the <ul>
+                    }
+        </script>
+        <script>
+        let i = 0;
+while (i < interests.length) {
+    const listItem = document.createElement("li");
+    listItem.textContent = interests[i];
+    interestsList.appendChild(listItem);
+    i++;
+}
+let j = 0;
+do {
+    const listItem = document.createElement("li");
+    listItem.textContent = interests[j];
+    interestsList.appendChild(listItem);
+    j++;
+} while (j < interests.length);
+for (const interest of interests) {
+    const listItem = document.createElement("li");
+    listItem.textContent = interest;
+    interestsList.appendChild(listItem);
+}interests.forEach(interest => {
+    const listItem = document.createElement("li");
+    listItem.textContent = interest;
+    interestsList.appendChild(listItem);
+});
+    </script>
+</html>

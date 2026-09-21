@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+                <head>
+                    <!--
+                    Author:Tevin Donegan
+                    Date: 09/20/2026
+                    Purpose: creating an interactive web page using unordered lists.
+                    -->
+                    <meta charset="utf-8" />
+                    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+                    <title>Utilizing Lists</title>
+                    <link rel="stylesheet" href="styles.css" />
+                    <script src="modernizr.custom.05819.js"></script>
+                </head>
+<body>
+                <header>
+                    <h1>TEVDON4603, Utilizing Lists</h1>
+                </header>
+        <article>
+                <div id="results">
+                    <ul>
+                        <li id="item1"></li>
+                        <li id="item2"></li>
+                        <li id="item3"></li>
+                        <li id="item4"></li>
+                        <li id="item5"></li>
+                    </ul>
+                <p id="resultsExpl"></p>
+                </div>
+        <form>
+                <fieldset>
+                    <label for="toolBox" id="placeLabel"> Type the name of a
+                    tool, then click Submit: </label> <input type="text" id="toolBox" />
+                </fieldset>
+                <fieldset>
+                        <button type="button" id="button">Submit</button>
+                </fieldset>
+        </form>
+        </article>
+            <script>
+                        var i = 1;
+                        var listItem = "";
+                        function processInput() {
+                        /***** The code below uses an if statement
+                        if (i <= 5) {
+                        //listItem ID
+                        listItem = "item" + i;
+                        //set listItem to text in text box
+                        document.getElementById(listItem).innerHTML =
+                        document.getElementById("toolBox").value;
+                        //set textbox to empty text
+                        document.getElementById("toolBox").value = "";
+                        //if i is 5, thank user
+                        if (i === 5){
+                        document.getElementById("resultsExpl").innerHTML =
+                        "Thanks for your suggestions.";
+                        }
+                        i++;
+                        }
+                        **********/
+                        // Implement the same conditional functionality using a switch
+                        switch(i){
+                        case 5:
+                        //listItem ID
+                        listItem = "item" + i;
+                        //set listItem to text in text box
+                        document.getElementById(listItem).innerHTML =
+                        document.getElementById("toolBox").value;
+                        //set textbox to empty text
+                        document.getElementById("toolBox").value = "";
+                        document.getElementById("resultsExpl").innerHTML =
+                        "Thanks for your suggestions.";
+                        break;
+                        default:
+                        //listItem ID
+                        listItem = "item" + i;
+                        //set listItem to text in text box
+                        document.getElementById(listItem).innerHTML =
+                        document.getElementById("toolBox").value;
+                        //set textbox to empty text
+                        document.getElementById("toolBox").value = "";
+                        i++;
+                        }
+                        }
+                        // Add backward compatible event listener to Submit button - ensures
+                        var submitButton = document.getElementById("button");
+                        if (submitButton.addEventListener){
+                        submitButton.addEventListener("click", processInput, false);
+                        }
+                        else if (submitButton.attachEvent){
+                        submitButton.attachEvent("onclick", processInput);
+                        }
+            </script>
+</body>
+</html>

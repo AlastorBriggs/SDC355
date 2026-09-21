@@ -2,9 +2,10 @@
 <html>
 <head>
      <!--
-         Author: 
-         Date:   
-         Purpose:
+         Author: Tevin Donegan
+         Date:09/20/2026   
+         Purpose: work with the scripts of an existing web page to identify and fix errors that prevent the page from functioning
+correctly. 
         -->
    <meta charset="utf-8" />
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -16,7 +17,7 @@
 <body>
    <header>
       <h1>
-         StudentID, Console Debugging 
+         TEVDON4603, Console Debugging 
       </h1>
    </header>
 
@@ -44,31 +45,33 @@
       </form>
    </article>
    <script>
-      //"use strict"
+      "use strict";
       var places = []; // new array to store entered places
       var i = 1; // counter variable to track array indexes
-      var milesElement = document.getElementById(mValue");
+      var milesElement = document.getElementById("mValue");
       
       function convert(){
-        return milesElement.value * .6
+        return milesElement.value * 1.6;
       }
 
       // function to add input to array and then generate list after 5th submission
       function processInput() {
-         convStr = milesElement.value + " miles is  + convert() + " km";
+         var convStr = milesElement.value + " miles is " + convert() + " km";
          places[i] = convStr; // convert message to array
-         milesElement.value = "" // clear text box
-         if (i < 5) { // iterate counter variable
+         milesElement.value = ""; // clear text box
+         
+         if (i < 5) { //iterate counter variable
             i++;
          }
          else { // add entered value to array and write results to document
             document.getElementById("resultsExpl").innerHTML = "Converted Values:";
-            listItem = "";
-            for (j = 1; j < 5; j++) { // write each array element to its corresponding list item
+            var listItem = "";
+            for (var j = 1; j < 6; j++) { // write each array element to its corresponding list item
                listItem = "item" + j;
                document.getElementById(listItem).innerHTML = places[j];
             }
          
+         }
       }
 
       // Add backward compatible event listener to Submit button
