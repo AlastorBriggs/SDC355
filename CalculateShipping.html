@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <!--
+                Author: Tevin Donegan
+                Date: 09/20/2026
+                Purpose: This exercise uses JavaScript to calculate shipping and handling
+                based on the purchase price. The program calculates the shipping fee,
+                adds it to the purchase price, and displays the final order total.
+            -->
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <title>Calculate Shipping</title>
+        </head>
+
+<body>
+
+    <header>
+        <h1>Tevin Donegan - Calculate Shipping</h1>
+    </header>
+
+    <main>
+        <label for="purchasePrice">Purchase Price:</label>
+
+        <input type="text" id="purchasePrice">
+
+        <button type="button" onclick="calculateShipping()">
+            Get Shipping &amp; Handling Fee
+        </button>
+    </main>
+
+    <script>
+        function calculateShipping() {
+
+            // Get the purchase price entered by the user
+            let purchasePrice = parseFloat(
+                document.getElementById("purchasePrice").value
+            );
+
+            // Calculate the shipping and handling fee
+            let shippingFee;
+
+            if (purchasePrice <= 25) {
+                shippingFee = 1.50;
+            } else {
+                shippingFee = purchasePrice * 0.10;
+            }
+
+            // Add the shipping fee to the purchase price
+            let orderTotal = purchasePrice + shippingFee;
+
+            // Display the total in an alert box
+            alert("The total order amount is $" + orderTotal.toFixed(2));
+        }
+    </script>
+
+</body>
+</html>

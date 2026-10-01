@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!--
+        Author: Tevin Donegan
+        Date: 09/23/2026
+        Purpose: To create an interactive portfolio page using JavaScript
+        conditional statements, loops, event listeners, and a dark mode toggle.
+    -->
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tevin Donegan - My Homepage</title>
+
+<!-- Link to external CSS stylesheet -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Modernizr helps ensure compatibility with older browsers -->
+<script src="modernizr.custom.05819.js"></script>
+
+
+</head>
+
+<body>
+
+
+<!-- Dark Mode Toggle -->
+<div class="dark-mode-control">
+    <label for="darkMode">
+        <input type="checkbox" id="darkMode">
+        Dark Mode
+    </label>
+</div>
+
+<!-- Welcome message -->
+<header>
+    <h1>Welcome to My Page</h1>
+    <div id="name"></div>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#featured">Featured Content</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+
+        <p>
+            My name is Tevin Donegan, and I am currently enrolled in college
+            studying software development. I am interested in web development
+            and learning how to create useful and interactive websites.
+        </p>
+
+        <p>
+            I enjoy learning new programming languages and developing my
+            technical skills. Some of my hobbies include listening to music,
+            playing guitar, and sketching.
+        </p>
+
+        <!-- Skills will be displayed here using JavaScript -->
+        <h3>My Skills</h3>
+        <ul id="skillsList"></ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <p>
+            Below are three projects that demonstrate some of the programming
+            and web development skills I have been learning.
+        </p>
+
+        <div class="projects">
+
+            <!-- Project 1 -->
+            <div class="project">
+                <a href="https://github.com/AlastorBriggs/SDC355.git" target="_blank" rel="noopener noreferrer">
+                    <img src="project1.jpg" alt="JavaScript Project">
+                </a>
+
+                <h3>JavaScript Project</h3>
+
+                <p>
+                    A JavaScript project demonstrating programming and
+                    web development skills.
+                </p>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <a href="https://github.com/AlastorBriggs/SDC355.git" target="_blank" rel="noopener noreferrer">
+                    <img src="project2.jpg" alt="Web Development Project">
+                </a>
+
+                <h3>Web Development Project</h3>
+
+                <p>
+                    A web development project created as part of my coursework.
+                </p>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project">
+                <a href="https://github.com/AlastorBriggs/SDC355.git" target="_blank" rel="noopener noreferrer">
+                    <img src="project3.jpg" alt="Programming Project">
+                </a>
+
+                <h3>Programming Project</h3>
+
+                <p>
+                    A programming project demonstrating problem-solving
+                    and coding skills.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Featured Content Section -->
+    <section id="featured">
+        <h2>Featured Content</h2>
+
+        <!-- University Resources -->
+        <div id="universityResources" class="featured-box university">
+            <h3>University Resources</h3>
+
+            <p>
+                Visit my ECPI program resources:
+            </p>
+
+            <a href="https://www.ecpi.edu/" target="_blank" rel="noopener noreferrer">
+                ECPI University
+            </a>
+        </div>
+
+        <!-- Personal Projects -->
+        <div id="personalProjects" class="featured-box personal">
+            <h3>Personal Projects</h3>
+
+            <p>
+                Check out some of my programming and web development projects:
+            </p>
+
+            <a href="https://github.com/AlastorBriggs/SDC355.git"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img src="project1.jpg" alt="JavaScript GitHub Project">
+            </a>
+
+            <a href="https://github.com/AlastorBriggs/SDC355.git"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img src="project2.jpg" alt="Web Development GitHub Project">
+            </a>
+
+            <a href="https://github.com/AlastorBriggs/SDC355.git"
+               target="_blank"
+               rel="noopener noreferrer">
+                <img src="project3.jpg" alt="Programming GitHub Project">
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+
+        <form id="contactForm" action="#" method="post">
+
+            <label for="sender-name">Name:</label>
+            <input type="text" id="sender-name" name="sender-name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit" id="submitButton">Send Message</button>
+
+        </form>
+    </section>
+
+</main>
+
+<script>
+    // Prompt the user for their name
+    let name = prompt("What is your name?");
+
+    // Display a personalized welcome message
+    if (name) {
+        document.getElementById("name").innerText =
+            "Hello, " + name + "! Welcome to my website.";
+    } else {
+        document.getElementById("name").innerText =
+            "Hello! Welcome to my website.";
+    }
+
+
+    // ==========================================
+    // IMPLEMENT A LOOP
+    // ==========================================
+
+    // Array containing skills and technologies
+    const skills = [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git",
+        "GitHub"
+    ];
+
+    // Select the skills list
+    const skillsList = document.getElementById("skillsList");
+
+    // Use a for loop to display each skill
+    for (let i = 0; i < skills.length; i++) {
+        const listItem = document.createElement("li");
+
+        listItem.innerText = skills[i];
+
+        skillsList.appendChild(listItem);
+    }
+
+
+    // ==========================================
+    // CONDITIONAL LOGIC FOR FEATURED CONTENT
+    // ==========================================
+
+    // Select the Projects section
+    const projectSection = document.querySelector("#projects");
+
+    // Count the number of projects
+    const projectCount = document.querySelectorAll("#projects .project").length;
+
+    // Select the Featured Content divs
+    const universityResources =
+        document.getElementById("universityResources");
+
+    const personalProjects =
+        document.getElementById("personalProjects");
+
+    // Determine which Featured Content should be displayed
+    if (projectCount < 3) {
+
+        // Show both sections if there are fewer than three projects
+        universityResources.style.display = "block";
+        personalProjects.style.display = "block";
+
+    } else {
+
+        // Show Personal Projects and hide University Resources
+        universityResources.style.display = "none";
+        personalProjects.style.display = "block";
+    }
+
+
+    // ==========================================
+    // DARK MODE SLIDER
+    // ==========================================
+
+    // Select the Dark Mode checkbox
+    const darkMode = document.getElementById("darkMode");
+
+    // Add a change event listener
+    darkMode.addEventListener("change", function () {
+
+        // Add or remove the dark-mode class
+        document.body.classList.toggle("dark-mode");
+
+    });
+
+
+    // ==========================================
+    // CONTACT FORM SUBMIT BUTTON
+    // ==========================================
+
+    // Select the Submit button
+    const submitButton = document.getElementById("submitButton");
+
+    // Add a click event listener
+    submitButton.addEventListener("click", function (event) {
+
+        // Prevent the form from refreshing the page
+        event.preventDefault();
+
+        // Get the user's name from the form
+        const senderName =
+            document.getElementById("sender-name").value;
+
+        // Display confirmation message
+        alert(
+            "Thank you, " +
+            senderName +
+            ", your message has been sent!"
+        );
+    });
+</script>
+
+
+</body>
+</html>

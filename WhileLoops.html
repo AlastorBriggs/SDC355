@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Author: Tevin Donegan - TEVDON4603
+        Date: 09/20/2026
+        Purpose: This exercise demonstrates how to use a while loop in JavaScript.
+        The program will display all even numbers between 1 and 101.
+        A new line will begin whenever a number is divisible by 10.
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>While Loop</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tevin Donegan - While Loop</h1>
+    </header>
+
+    <main>
+        <h2>Even Numbers Between 1 and 101</h2>
+
+        <div id="output"></div>
+
+        <script>
+            // Start with the first even number.
+            let number = 2;
+
+            // Continue the loop while the number is less than or equal to 101.
+            while (number <= 101) {
+
+                // Display the current even number.
+                document.write(number + " ");
+
+                // If the number is divisible by 10, start a new line.
+                if (number % 10 === 0) {
+                    document.write("<br>");
+                }
+
+                // Increase the number by 2 to get the next even number.
+                number += 2;
+            }
+        </script>
+    </main>
+</body>
+</html>

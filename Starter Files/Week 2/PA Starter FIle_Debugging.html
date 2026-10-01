@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        Author: Tevin Donegan - TEVDON4603
+        Date: 09/23/2026
+        Purpose: To practice debugging a JavaScript program that calculates
+        the areas of a rectangle and a right triangle.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<!-- ERROR: The title was empty.
+     FIX: Added "Debugging" as the page title. -->
+<title>Debugging</title>
+
+
+</head>
+
+<body onload="calculateAreas();">
+    <header>
+        <h1 style="margin-left: 3em">
+            Tevin Donegan, Debugging
+        </h1>
+    </header>
+
+
+<article>
+    <form>
+        <pre><span style="font-size: 20px; font-family: Times New Roman">
+            The area of a rectangle is found by multiplying
+            the length by the width:
+                area = length * width
+
+            For a right triangle, the area is 1/2 the length
+            times the width:
+                area = (length * width)/2
+
+            Given these formulas, if we have a rectangle with
+            a length of 5 and width of 10, the corresponding
+            areas of the rectangle and the right triangle
+            formed by the line that bisects the rectangle
+            are:</span></pre>
+
+        <p id="rectArea" style="margin-left: 8em; font-family: Times New Roman; font-size: 20px"></p>
+        <p id="triArea" style="margin-left: 8em; font-family: Times New Roman; font-size: 20px"></p>
+    </form>
+</article>
+
+<script>
+   "use strict";
+    // This function checks for strict mode - there are no errors in this line
+    var isStrict = (function() { return !this; })();
+
+    // This function calculates the areas and sets the HTML dynamically
+    function calculateAreas() {
+        if (isStrict) {
+
+            // Calculate the rectangle's area
+            var rectArea = 5 * 10;
+
+            // ERROR: The original code used * 2 instead of / 2.
+            // FIX: Changed * 2 to / 2 because a triangle is half
+            // of the rectangle.
+            var triArea = (5 * 10) / 2;
+
+            // ERROR: The original code did not use quotation marks
+            // around "rectArea".
+            // FIX: Added quotation marks so JavaScript treats it
+            // as the ID of the HTML element.
+            var rectP = document.getElementById("rectArea");
+
+            // ERROR: The original string was missing a quotation mark
+            // and had incorrect characters.
+            // FIX: Corrected the quotation marks and added rectArea
+            // to the message using the + operator.
+            rectP.innerHTML = "Rectangle Area is: " + rectArea;
+
+            // ERROR: The original code had incorrect quotation marks
+            // and extra characters around "triArea".
+            // FIX: Added the correct quotation marks and removed
+            // the extra characters.
+            var triP = document.getElementById("triArea");
+
+            // ERROR: The original code displayed rectArea instead
+            // of triArea.
+            // FIX: Changed rectArea to triArea so the correct
+            // triangle calculation is displayed.
+            triP.innerHTML = "Triangle Area is: " + triArea;
+
+        // ERROR: The original code was missing a closing brace
+        // before the else statement.
+        // FIX: Added the closing brace to properly end the if statement.
+        }
+        else {
+            alert("You're not using strict mode.");
+        }
+
+    // ERROR: The original code was missing the closing brace
+    // for the calculateAreas() function.
+    // FIX: Added the closing brace to properly end the function.
+    }
+</script>
+
+
+</body>
+</html>
