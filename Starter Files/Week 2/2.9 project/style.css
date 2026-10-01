@@ -1,0 +1,304 @@
+/* ==========================================
+Portfolio Page Styles
+Added for Conditional Logic Assignment
+========================================== */
+/* Portfolio body */
+body {
+line-height: 1.5;
+background: white;
+color: #222222;
+}
+
+/* Portfolio header */
+header {
+background: #04819E;
+color: #FFFFFF;
+width: 100%;
+padding: 20px;
+font-size: 1em;
+text-align: center;
+line-height: 1.5em;
+}
+
+/* Welcome message */
+#name {
+font-size: 1.2em;
+margin: 10px 0;
+}
+
+/* Navigation menu */
+nav ul {
+list-style-type: none;
+margin: 10px 0;
+padding: 0;
+}
+
+nav li {
+display: inline-block;
+margin: 0 10px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-weight: bold;
+}
+
+nav a:hover {
+text-decoration: underline;
+}
+
+/* Main portfolio content */
+main {
+width: 100%;
+background: ivory;
+padding: 20px;
+overflow: auto;
+}
+
+/* Override the original section rule */
+main section {
+display: block;
+float: none;
+width: 100%;
+background: white;
+border: 2px solid #04819E;
+margin: 0 0 25px 0;
+padding: 20px;
+}
+
+/* Section headings */
+main section h2 {
+width: 100%;
+background: #e3d5ba;
+padding: 10px;
+margin-bottom: 15px;
+text-align: center;
+}
+
+/* About section */
+#about p {
+margin-bottom: 15px;
+}
+
+/* Skills list */
+#skillsList {
+margin: 15px 0 0 30px;
+padding-left: 20px;
+}
+
+#skillsList li {
+list-style-type: disc;
+margin-bottom: 5px;
+}
+
+/* Projects container */
+.projects {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+}
+
+/* Individual project */
+.project {
+flex: 1 1 250px;
+padding: 15px;
+border: 2px solid #cccccc;
+border-radius: 8px;
+text-align: center;
+background: #f5f5f5;
+}
+
+/* Project images */
+.project img {
+width: 200px;
+height: 150px;
+object-fit: cover;
+border: 1px solid #999999;
+}
+
+/* Project headings */
+.project h3 {
+margin: 10px 0;
+}
+
+/* ==========================================
+Featured Content
+========================================== */
+
+#featured {
+display: block;
+}
+
+.featured-box {
+padding: 20px;
+margin: 15px 0;
+border: 3px solid #04819E;
+border-radius: 8px;
+}
+
+/* University Resources */
+#universityResources {
+background: #e3d5ba;
+border-left: 8px solid #04819E;
+}
+
+#universityResources a {
+font-weight: bold;
+}
+
+/* Personal Projects */
+#personalProjects {
+background: #eeeeee;
+border-left: 8px solid #04819E;
+}
+
+#personalProjects img {
+width: 150px;
+height: 100px;
+object-fit: cover;
+margin: 10px;
+border: 2px solid #04819E;
+border-radius: 6px;
+}
+
+/* ==========================================
+Dark Mode
+========================================== */
+
+.dark-mode-control {
+background: #e3d5ba;
+padding: 15px;
+text-align: right;
+font-weight: bold;
+}
+
+.dark-mode-control input {
+margin-right: 5px;
+transform: scale(1.1);
+}
+
+/* Dark mode body */
+body.dark-mode {
+background: #111111 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode header */
+body.dark-mode header {
+background: #222222 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode main area */
+body.dark-mode main {
+background: #111111 !important;
+}
+
+/* Dark mode sections */
+body.dark-mode main section {
+background: #222222 !important;
+border-color: #777777 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode headings */
+body.dark-mode main section h2 {
+background: #333333 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode projects */
+body.dark-mode .project {
+background: #333333 !important;
+border-color: #777777 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode Featured Content */
+body.dark-mode #universityResources {
+background: #333333 !important;
+border-left-color: #87CEFA !important;
+}
+
+body.dark-mode #personalProjects {
+background: #444444 !important;
+border-left-color: #87CEFA !important;
+}
+
+body.dark-mode .featured-box {
+border-color: #999999 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode links */
+body.dark-mode a {
+color: #87CEFA !important;
+}
+
+body.dark-mode nav a {
+color: #ffffff !important;
+}
+
+/* Dark mode form */
+body.dark-mode input,
+body.dark-mode textarea {
+background: #333333 !important;
+color: #ffffff !important;
+border: 1px solid #999999 !important;
+}
+
+/* Dark mode toggle control */
+body.dark-mode .dark-mode-control {
+background: #222222 !important;
+color: #ffffff !important;
+}
+
+/* Dark mode text elements */
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode li,
+body.dark-mode label {
+color: #ffffff !important;
+}
+
+/* Submit button */
+#submitButton {
+padding: 10px 20px;
+margin-top: 10px;
+font-weight: bold;
+cursor: pointer;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 700px) {
+
+body {
+width: 100%;
+}
+
+main {
+width: 100%;
+}
+
+.projects {
+display: block;
+}
+
+.project {
+margin-bottom: 20px;
+}
+
+nav li {
+display: block;
+margin: 5px 0;
+}
+
+.personal img {
+max-width: 100%;
+height: auto;
+}
+}
