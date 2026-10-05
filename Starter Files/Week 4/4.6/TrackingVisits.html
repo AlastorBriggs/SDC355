@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: To track a user's visits to a webpage using JavaScript cookies.
+             On the first visit, a welcome message is displayed. On every
+             subsequent visit, the day, date, and time of the previous visit
+             is shown by reading the stored cookie value.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Visits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+            background: #f9f9f9;
+            color: #222222;
+        }
+        header {
+            background: #04819E;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        #visitMessage {
+            background: white;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border: 2px solid #04819E;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #04819E;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TevDon4603, Tracking Visits</h1>
+    </header>
+
+    <div id="visitMessage"></div>
+
+    <script>
+        /*
+         * Reads a cookie value by name.
+         * Returns the decoded value, or null if the cookie does not exist.
+         */
+        function getCookie(name) {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+
+                if (cookie.indexOf(name + "=") === 0) {
+                    return decodeURIComponent(
+                        cookie.substring(name.length + 1)
+                    );
+                }
+            }
+            return null;
+        }
+
+        /*
+         * Writes a cookie with the given name, value, and number of days
+         * until it expires.
+         */
+        function setCookie(name, value, days) {
+            var expiresDate = new Date();
+            expiresDate.setDate(expiresDate.getDate() + days);
+
+            document.cookie = name + "=" +
+                encodeURIComponent(value) +
+                "; expires=" + expiresDate.toUTCString() +
+                "; path=/";
+        }
+
+        /*
+         * Runs when the page loads. Checks for a stored "lastVisit" cookie:
+         *  - If the cookie does not exist, then this is the user's first visit.
+         *  - If the cookie exists show the date and time of the of the last visit
+         */
+        function trackVisit() {
+            var messageEl = document.getElementById("visitMessage");
+
+            // Get the current date and time.
+            var currentDate = new Date();
+            var currentVisitString = currentDate.toString();
+
+            // Try to read the lastVisit cookie.
+            var lastVisit = getCookie("lastVisit");
+
+            if (lastVisit === null) {
+                // First visit — no cookie exists yet.
+                messageEl.textContent =
+                    "Welcome! This is your first visit to the webpage.";
+            } else {
+                // Returning visit — show the stored day, date, and time.
+                messageEl.textContent =
+                    "Your last visit was: " + lastVisit;
+            }
+
+            // Save the current visit so the next visit can read it.
+            setCookie("lastVisit", currentVisitString, 30);
+        }
+
+        // Run trackVisit once the page has finished loading.
+        window.addEventListener("load", trackVisit, false);
+    </script>
+</body>
+</html>

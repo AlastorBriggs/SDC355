@@ -1,0 +1,82 @@
+/* ==========================================
+   Target Heart Rate Calculator Styles
+   Author: Tevin Donegan
+   Date:   10/01/2026
+   ========================================== */
+
+/* Page layout */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 40px;
+    background: #f9f9f9;
+    color: #222222;
+}
+
+/* Header banner */
+header {
+    background: #04819E;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6em;
+}
+
+/* Main content card */
+main {
+    background: white;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 2px solid #04819E;
+    border-radius: 8px;
+}
+
+/* Age input label */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #04819E;
+}
+
+/* Age input box */
+input {
+    padding: 8px;
+    font-size: 1em;
+    margin-top: 5px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid #999999;
+    border-radius: 4px;
+}
+
+/* Calculate button */
+button {
+    margin-top: 20px;
+    padding: 10px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background: #04819E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+button:hover {
+    background: #026a80;
+}
+
+/* Result text */
+#result {
+    margin-top: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #222222;
+    min-height: 1.5em;
+}

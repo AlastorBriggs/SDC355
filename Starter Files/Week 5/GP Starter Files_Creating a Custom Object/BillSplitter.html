@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: Bill Splitter. This exercise calculates a tip, the total bill
+             with the tip included, and the amount each person owes when the
+             bill is split evenly. It uses live client-side validation on
+             every field to verify the user's input.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Splitter</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>TevDon4603, Bill Splitter</h1>
+    </header>
+
+    <main>
+        <form id="billForm" novalidate>
+            <label for="billAmount">Bill Amount</label>
+            <input type="text" id="billAmount" placeholder="e.g., 84.50" />
+            <div id="billError" class="error"></div>
+
+            <label for="tipPercent">Tip Percentage</label>
+            <input type="number" id="tipPercent" placeholder="0-100" min="0" max="100" step="1" />
+            <div id="tipError" class="error">Enter a number from 0 to 100.</div>
+
+            <label for="peopleCount">People Count</label>
+            <input type="text" id="peopleCount" placeholder="e.g., 3" />
+            <div id="peopleError" class="error"></div>
+
+            <button type="button" id="calculateBtn">Calculate</button>
+        </form>
+
+        <div id="summary">
+            <h2>Bill Summary</h2>
+            <p><strong>Tip Amount:</strong> <span id="tipAmount"></span></p>
+            <p><strong>Total Bill (with Tip):</strong> <span id="totalBill"></span></p>
+            <p><strong>Amount Per Person:</strong> <span id="perPerson"></span></p>
+        </div>
+    </main>
+
+    <script src="Calculation.js"></script>
+</body>
+</html>

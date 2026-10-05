@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Tevin Donegan
+        Date:   10/01/2026
+        Purpose: To demonstrate opening a secondary pop-up window from a main
+                 page using JavaScript. The user selects either an Addition
+                 Table or a Multiplication Table, and a child window opens
+                 displaying the corresponding table from 0 to 10.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-Up</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+        }
+        header {
+            background: #04819E;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 15px 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #04819E;
+            border-radius: 6px;
+            background: white;
+            color: #04819E;
+        }
+        button:hover {
+            background: #04819E;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tevin Donegan, Pop-Up</h1>
+    </header>
+
+    <main>
+        <h2>Math Table Generator</h2>
+        <p>Choose a table to display:</p>
+
+        <button onclick="openTable('addition')">Addition Table</button>
+        <button onclick="openTable('multiplication')">Multiplication Table</button>
+    </main>
+
+    <script>
+         /** Built a style sheet to style the page and buttons for the pop-up window demonstration. */
+        function openTable(tableType) {
+            // Build the window features string for a centered pop-up.
+            var popupWidth = 500;
+            var popupHeight = 600;
+
+            // Calculate a centered position on the current screen.
+            var winLeft = (screen.width - popupWidth) / 2;
+            var winTop = (screen.height - popupHeight) / 2;
+
+            var winOptions = "width=" + popupWidth + ",height=" + popupHeight;
+            winOptions += ",left=" + winLeft;
+            winOptions += ",top=" + winTop;
+
+            // Open the secondary window, passing the table type in the URL.
+            window.open(
+                "MathTableDisplay.html?type=" + tableType,
+                "MathTableDisplay",
+                winOptions
+            );
+        }
+    </script>
+</body>
+</html>

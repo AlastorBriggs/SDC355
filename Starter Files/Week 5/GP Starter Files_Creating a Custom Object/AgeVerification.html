@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: Simple form validation exercise. This page uses jQuery and the
+             validator.js library to validate an email address and an age
+             field in real time and before form submission.
+    -->
+    <meta charset="utf-8">
+    <title>Simple Form Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/validator@13.11.0/validator.min.js"></script>
+</head>
+<body>
+    <h1>TevDon4603 — Age Verification</h1>
+
+    <form id="simpleForm" novalidate>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <div id="emailError" style="color:red;"></div>
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age">
+        <div id="ageError" style="color:red;"></div>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="SimpleValidation.js"></script>
+</body>
+</html>

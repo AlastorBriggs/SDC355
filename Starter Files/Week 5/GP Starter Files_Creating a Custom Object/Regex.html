@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: To practice using regular expressions in JavaScript by validating
+             user input for email, phone number, and postal code fields. Live
+             feedback is shown as the user types, and a button validates all
+             fields at once.
+    -->
+    <meta charset="utf-8">
+    <title>Regular Expressions Practice</title>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: inline-block; width: 140px; }
+        .row { margin: 10px 0; }
+        .feedback { font-size: 0.9em; margin-left: 145px; }
+        .valid { color: green; }
+        .invalid { color: red; }
+    </style>
+</head>
+<body>
+    <h1>TevDon4603 - Regular Expressions Practice</h1>
+
+    <form id="regexForm" novalidate>
+        <div class="row">
+            <label for="email">Email:</label>
+            <input type="text" id="email" />
+            <div id="emailFeedback" class="feedback"></div>
+        </div>
+
+        <div class="row">
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="123-456-7890" />
+            <div id="phoneFeedback" class="feedback"></div>
+        </div>
+
+        <div class="row">
+            <label for="postal">Postal Code:</label>
+            <input type="text" id="postal" placeholder="12345" />
+            <div id="postalFeedback" class="feedback"></div>
+        </div>
+
+        <button type="button" id="checkBtn">Check Inputs</button>
+    </form>
+
+    <script src="RegexCheck.js"></script>
+</body>
+</html>

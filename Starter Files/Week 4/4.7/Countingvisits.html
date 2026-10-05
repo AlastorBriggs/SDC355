@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: To count and track a user's visits to a webpage using JavaScript
+             cookies. On the first visit, a welcome message is displayed. On
+             everyt visit with the day, date, and time of the previous
+             visit is shown along with a running count of how many times the
+             user has visited the page.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Visits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 40px;
+            background: #f9f9f9;
+            color: #222222;
+        }
+        header {
+            background: #04819E;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        #visitMessage {
+            background: white;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 25px;
+            border: 2px solid #04819E;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #04819E;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TevDon4603, Counting Visits</h1>
+    </header>
+
+    <div id="visitMessage"></div>
+
+    <script>
+        /*
+         * Reads a cookie value by name.
+         * Returns the decoded value, or null if the cookie does not exist.
+         */
+        function getCookie(name) {
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+
+                if (cookie.indexOf(name + "=") === 0) {
+                    return decodeURIComponent(
+                        cookie.substring(name.length + 1)
+                    );
+                }
+            }
+            return null;
+        }
+
+        /*
+         * Writes a cookie with the given name, value, and number of days
+         * until it expires.
+         */
+        function setCookie(name, value, days) {
+            var expiresDate = new Date();
+            expiresDate.setDate(expiresDate.getDate() + days);
+
+            document.cookie = name + "=" +
+                encodeURIComponent(value) +
+                "; expires=" + expiresDate.toUTCString() +
+                "; path=/";
+        }
+
+        /*
+         * Runs when the page loads. Uses two cookies:
+         *  - "lastVisit" stores the date/time of the previous visit.
+         *  - "visitCount" stores how many times the user has visited.
+         *
+         * On the first visit, both cookies are missing, so a welcome
+         * message is shown and the count starts at 1.
+         * On every later visit, the previous visit's date/time and the
+         * running visit count are displayed.
+         */
+        function trackVisit() {
+            var messageEl = document.getElementById("visitMessage");
+
+            // Get the current date and time.
+            var currentDate = new Date();
+            var currentVisitString = currentDate.toString();
+
+            // Read the stored cookies.
+            var lastVisit = getCookie("lastVisit");
+            var visitCount = getCookie("visitCount");
+
+            if (lastVisit === null) {
+                // First visit — no cookies exist yet.
+                messageEl.textContent =
+                    "Welcome! This is your first visit to the webpage.";
+
+                // Initialize the visit count to 1.
+                visitCount = 1;
+            } else {
+                // Returning visit — increment the visit count.
+                visitCount = Number(visitCount) + 1;
+
+                // Display the previous visit's date/time and the new count.
+                messageEl.textContent =
+                    "Your last visit was: " + lastVisit +
+                    " — This is visit #" + visitCount + ".";
+            }
+
+            // Update both cookies for the next visit.
+            setCookie("lastVisit", currentVisitString, 30);
+            setCookie("visitCount", visitCount, 30);
+        }
+
+        // Run trackVisit once the page has finished loading.
+        window.addEventListener("load", trackVisit, false);
+    </script>
+</body>
+</html>

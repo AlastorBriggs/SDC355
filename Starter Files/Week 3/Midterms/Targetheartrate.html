@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Author: Tevin Donegan
+        Date:   10/01/2026
+        Purpose: Target Heart Rate Calculator. This exercise demonstrates
+                 using JavaScript form input, conditional validation, and
+                 arithmetic calculations to determine a user's target heart
+                 rate range based on the American Heart Association formula.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Heart Rate Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Tevin Donegan, Target Heart Rate</h1>
+    </header>
+
+    <main>
+        <label for="ageInput">Your Age:</label>
+        <input type="number" id="ageInput" name="age" min="0" max="125" />
+
+        <br>
+
+        <button id="calcButton">Calculate Target Heart Rate</button>
+
+        <p id="result">Target Heart Rate: </p>
+    </main>
+
+    <script>
+        /**
+         * Calculates and displays the user's target heart rate range.
+         *
+         * Steps:
+         *  1. Read the age the user entered.
+         *  2. Validate that age is between 0 and 125 (inclusive).
+         *  3. Compute maxHR  = 220 - age.
+         *  4. Compute minTHR = maxHR * 0.50.
+         *  5. Compute maxTHR = maxHR * 0.85.
+         *  6. Round both values down with Math.floor().
+         *  7. Display the range in the required format.
+         */
+        function calculateTHR() {
+            // Grab the age from the input box and convert it to a number.
+            var age = Number(document.getElementById("ageInput").value);
+
+            // Validate the age. Alert and stop if it's out of range.
+            if (isNaN(age) || age < 0 || age > 125) {
+                alert("Please enter a valid age between 0 and 125.");
+                return;
+            }
+
+            // Calculate the maximum heart rate.
+            var maxHR = 220 - age;
+
+            // Calculate the target heart rate range (50% to 85% of maxHR).
+            var minTHR = maxHR * 0.50;
+            var maxTHR = maxHR * 0.85;
+
+            // Round both values down to whole numbers.
+            var minTHRrounded = Math.floor(minTHR);
+            var maxTHRrounded = Math.floor(maxTHR);
+
+            // Display the result in the required format.
+            document.getElementById("result").textContent =
+                "Target Heart Rate: " +
+                minTHRrounded + " to " + maxTHRrounded +
+                " Beats Per Minute";
+        }
+
+        // Wire the click event to the button once the page has loaded.
+        window.addEventListener("load", function () {
+            document.getElementById("calcButton")
+                .addEventListener("click", calculateTHR, false);
+        });
+    </script>
+</body>
+</html>

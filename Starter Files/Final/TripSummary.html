@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: Trip Summary Calculator. This exercise collects trip information
+             from the user, calculates total miles traveled and fuel economy,
+             stores the summary in a cookie and the current date/time in
+             session storage, then opens a new window displaying the results.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Summary</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>
+            TevDon4603, Trip Summary
+        </h1>
+    </header>
+
+    <article>
+        <h2>Trip Information</h2>
+
+        <form id="tripForm">
+            <fieldset id="tripinfo">
+                <label for="tripNameInput">Trip Name</label>
+                <input type="text" id="tripNameInput" name="tripName" />
+
+                <label for="startMileageInput">Starting Mileage</label>
+                <input type="number" id="startMileageInput" name="startMileage" />
+
+                <label for="endMileageInput">Ending Mileage</label>
+                <input type="number" id="endMileageInput" name="endMileage" />
+
+                <label for="gallonsInput">Gallons of Gas Used</label>
+                <input type="number" id="gallonsInput" name="gallons" step="0.01" />
+            </fieldset>
+
+            <fieldset id="submitbutton">
+                <input type="button" id="summaryBtn" value="Generate Trip Summary" />
+            </fieldset>
+        </form>
+    </article>
+
+    <script src="TripSummary.js"></script>
+</body>
+</html>
