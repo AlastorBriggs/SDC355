@@ -82,7 +82,7 @@ CDNs. If you need offline support, download both libraries and update the
 
 ### Option 2 — Open directly
 
-You can double-click `index.html` to open it in a browser via the
+You can double-click `Final Project.html` to open it in a browser via the
 `file://` protocol. Most features work, but storage APIs (session storage,
 local storage, cookies) behave inconsistently on `file://` URLs — serving
 through Apache is the reliable way to test.
