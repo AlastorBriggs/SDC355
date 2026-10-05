@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: TevDon4603
+    Date: 10/04/2026
+    Purpose: Sign-up form with live client-side validation. This exercise
+             uses jQuery and validator.js to validate a full name, email,
+             password, website URL, and age in real time. On success, an
+             alert is shown and the form is cleared. On failure, live error
+             messages appear under each invalid field.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+
+    <!-- jQuery and validator.js from CDNs -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/validator@13.11.0/validator.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222222;
+            margin: 30px;
+        }
+
+        /* The form panel with the light border, matching the sample */
+        .form-panel {
+            background: #f9f9f9;
+            max-width: 620px;
+            padding: 25px 35px 35px 35px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+        }
+
+        .row {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: inline-block;
+            width: 130px;
+            font-weight: normal;
+            vertical-align: middle;
+        }
+
+        input {
+            padding: 6px 8px;
+            font-size: 1em;
+            width: 220px;
+            border: 1px solid #999999;
+            border-radius: 3px;
+            background: white;
+            vertical-align: middle;
+        }
+
+        /* Red error messages under each field */
+        .error {
+            color: #cc0000;
+            font-size: 0.95em;
+            margin-left: 130px;    /* align under the input, not the label */
+            margin-bottom: 8px;
+            min-height: 1.2em;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 6px 14px;
+            font-size: 1em;
+            cursor: pointer;
+            background: #eeeeee;
+            color: #222222;
+            border: 1px solid #999999;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-panel">
+        <header>
+            <h1>TevDon4603 — Form Validation</h1>
+        </header>
+
+        <form id="signupForm" novalidate>
+            <div class="row">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" />
+            </div>
+
+            <div class="row">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" />
+            </div>
+            <div id="emailError" class="error"></div>
+
+            <div class="row">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <div id="passwordError" class="error"></div>
+
+            <div class="row">
+                <label for="website">Website URL</label>
+                <input type="text" id="website" name="website" />
+            </div>
+            <div id="websiteError" class="error"></div>
+
+            <div class="row">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" />
+            </div>
+            <div id="ageError" class="error"></div>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <script src="FormValidation.js"></script>
+</body>
+</html>
